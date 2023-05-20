@@ -4,9 +4,10 @@ import { themes } from "./config"
 
 type Props = {
   variant?: "light" | "dark" | "all"
+  className?: string
 }
 
-const SelectTheme = ({ variant }: Props) => {
+const SelectTheme = ({ variant, className }: Props) => {
   const dispatch = useAppDispatch()
   const theme = useAppSelector((state) => state.theme)
   let themesByVariant = themes
@@ -20,7 +21,7 @@ const SelectTheme = ({ variant }: Props) => {
   }
 
   return (
-    <div className="dropdown dropdown-end">
+    <div className="dropdown dropdown-end w-full">
       <label className="label">
         {(!variant || variant === "all") && (
           <span className="label-text">Choose theme:</span>
@@ -30,14 +31,14 @@ const SelectTheme = ({ variant }: Props) => {
           <span className="label-text">Light theme:</span>
         )}
       </label>
-      <label tabIndex={0} className="btn m-1 btn-sm">
+      <label tabIndex={0} className={`btn btn-sm ${className}`}>
         {(!variant || variant === "all") && theme.theme}
         {variant === "dark" && theme.dark}
         {variant === "light" && theme.light}
       </label>
       <ul
         tabIndex={0}
-        className="dropdown-content menu menu-compact shadow bg-base-100 rounded-box w-52 max-h-60 overflow-y-scroll flex-nowrap"
+        className="dropdown-content menu menu-compact shadow bg-base-100 rounded-box max-h-60 overflow-y-scroll flex-nowrap"
       >
         {themesByVariant.map(({ theme, mode }) => (
           <li

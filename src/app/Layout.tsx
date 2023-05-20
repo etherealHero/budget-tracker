@@ -5,10 +5,12 @@ import {
   ThemeProvider,
   createTheme,
 } from "@mui/material"
-import { MainPage } from "../pages"
 import { useAppSelector } from "./store"
 import { useEffect } from "react"
+import { Outlet } from "react-router-dom"
+
 import { themeModel } from "../shared"
+import { BottomNavbar } from "../widgets"
 
 const Layout = () => {
   const { theme, mode } = useAppSelector(themeModel.state)
@@ -50,7 +52,8 @@ const Layout = () => {
   return (
     <StyledEngineProvider injectFirst>
       <ThemeProvider theme={muiTheme}>
-        <MainPage />
+        <Outlet />
+        <BottomNavbar />
       </ThemeProvider>
     </StyledEngineProvider>
   )
