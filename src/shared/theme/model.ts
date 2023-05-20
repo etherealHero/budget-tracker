@@ -21,7 +21,7 @@ export const themeSlice = createSlice({
   reducers: {
     switch: (state) => {
       const newTheme = state.mode === "light" ? state.dark : state.light
-      
+
       state.theme = newTheme
       document.documentElement.dataset.theme = newTheme
       state.mode = state.mode === "light" ? "dark" : "light"
@@ -47,6 +47,7 @@ export const themeModel = {
   ...themeSlice.actions,
   theme: (state: RootState) => state.theme.theme,
   mode: (state: RootState) => state.theme.mode,
+  state: (state: RootState) => state.theme,
 }
 
 export default themeSlice.reducer

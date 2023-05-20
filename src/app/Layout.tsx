@@ -7,11 +7,11 @@ import {
 } from "@mui/material"
 import { MainPage } from "../pages"
 import { useAppSelector } from "./store"
-import { themeModel } from "../shared"
 import { useEffect } from "react"
+import { themeModel } from "../shared"
 
 const Layout = () => {
-  const theme = useAppSelector(themeModel.theme)
+  const { theme, mode } = useAppSelector(themeModel.state)
   const defaultMuiTheme = createTheme()
   const defaultShadows: ThemeOptions["shadows"] = [...defaultMuiTheme.shadows]
 
@@ -21,8 +21,24 @@ const Layout = () => {
     },
     shadows: defaultShadows.map(() => "none") as Shadows,
     palette: {
+      mode,
       primary: {
         main: "hsl(var(--p))",
+      },
+      secondary: {
+        main: "hsl(var(--s))",
+      },
+      error: {
+        main: "hsl(var(--er))",
+      },
+      warning: {
+        main: "hsl(var(--wa))",
+      },
+      info: {
+        main: "hsl(var(--in))",
+      },
+      success: {
+        main: "hsl(var(--su))",
       },
     },
   })
