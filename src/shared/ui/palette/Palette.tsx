@@ -5,7 +5,7 @@ const Palette = () => {
     <>
       <div className="max-h-52 overflow-scroll max-w-[calc(100%-16px)] m-2 border rounded-lg border-base-content">
         {themes.map((theme) => (
-          <div data-theme={theme} className="flex flex-nowrap">
+          <div key={theme} data-theme={theme} className="flex flex-nowrap">
             <span className="uppercase w-24 inline-block shrink-0">
               {theme}
             </span>
