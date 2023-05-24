@@ -1,9 +1,9 @@
-import { SwipableDrawer } from "../widgets"
+import { SwipeableDrawer } from "../widgets"
 
 const Dashboard = () => {
   return (
     <>
-      <SwipableDrawer />
+      <SwipeableDrawer />
     </>
   )
 }

@@ -1,3 +1,3 @@
-import SwipableDrawer from "./SwipableDrawer"
+import SwipeableDrawer from "./SwipeableDrawer"
 
-export { SwipableDrawer }
+export { SwipeableDrawer }
