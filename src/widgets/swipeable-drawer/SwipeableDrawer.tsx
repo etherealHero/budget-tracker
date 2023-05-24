@@ -1,34 +1,74 @@
-import { useEffect, useState } from "react"
 import { PanInfo, motion, useAnimate, useMotionValue } from "framer-motion"
+import { useEffect, useState } from "react"
 
 const SwipeableDrawer = () => {
-  const [scope, animate] = useAnimate<HTMLDivElement>()
+  const y = useMotionValue(0)
+  const [isCollapsed, setIsCollapsed] = useState(false)
+  const [ref, animate] = useAnimate()
 
-  useEffect(() => {
-    animate(scope.current, { top: "-30vh", paddingTop: "30vh" })
-  }, [scope])
-
-  const handleDragEnd = (
-    _: MouseEvent | TouchEvent | PointerEvent,
+  const dragEndHandler = (
+    _event: MouseEvent | TouchEvent | PointerEvent,
     info: PanInfo
   ) => {
-    const offset = info.offset.y
-    const velocity = info.velocity.y
+    console.log(info.offset.y)
 
-    if (offset < -100 || velocity < -500) {
-      animate(scope.current, { top: "-70vh" })
-    } else if (offset > 100 || velocity > 500) {
-      animate(scope.current, { top: "-30vh" })
+    if ((info.offset.y < -200 || info.velocity.y < -500) && !isCollapsed) {
+      animate(ref.current, { height: "30vh" })
+      setIsCollapsed(true)
+    }
+
+    if ((info.offset.y > 200 || info.velocity.y > 500) && isCollapsed) {
+      animate(ref.current, { height: "auto" })
+      setIsCollapsed(false)
     }
   }
 
+  useEffect(() => {}, [isCollapsed])
+
   return (
-    <div>
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam
-      consequatur, natus nesciunt itaque alias deserunt deleniti? Odit iusto rem
-      amet beatae, facilis dolore quam blanditiis temporibus expedita accusamus
-      repellendus voluptas.
-    </div>
+    <>
+      <motion.div
+        style={{ height: y }}
+        className="bg-base-100 absolute w-full"
+      />
+      <motion.div
+        style={{ y }}
+        className="bg-base-100 rounded-b-3xl p-3 pb-10 relative overflow-scroll"
+        drag="y"
+        dragElastic={1}
+        dragConstraints={{ top: 0, bottom: 0 }}
+        onDragEnd={dragEndHandler}
+        ref={ref}
+      >
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae iure
+          corrupti commodi provident ipsum? Dolores obcaecati autem, architecto
+          laborum odio possimus harum corporis sequi nam! Voluptate dolore
+          recusandae eum harum.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae iure
+          corrupti commodi provident ipsum? Dolores obcaecati autem, architecto
+          laborum odio possimus harum corporis sequi nam! Voluptate dolore
+          recusandae eum harum.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae iure
+          corrupti commodi provident ipsum? Dolores obcaecati autem, architecto
+          laborum odio possimus harum corporis sequi nam! Voluptate dolore
+          recusandae eum harum.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae iure
+          corrupti commodi provident ipsum? Dolores obcaecati autem, architecto
+          laborum odio possimus harum corporis sequi nam! Voluptate dolore
+          recusandae eum harum.
+        </p>
+        <div className="absolute bottom-0 left-0 right-0 w-full h-6 bg-base-100 flex justify-center items-end">
+          <div className="w-12 h-1.5 bg-base-content/50 rounded-box relative -top-2" />
+        </div>
+      </motion.div>
+    </>
   )
 }
 
