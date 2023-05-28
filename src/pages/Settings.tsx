@@ -1,4 +1,4 @@
-import { SelectTheme, SwitchTheme } from "../features"
+import { SelectTheme, SwitchTheme, ToggleDevMode } from "../features"
 import { Palette } from "../shared"
 
 const Settings = () => {
@@ -25,6 +25,7 @@ const Settings = () => {
         <SwitchTheme />
       </div>
       <Palette />
+      <ToggleDevMode />
     </div>
   )
 }

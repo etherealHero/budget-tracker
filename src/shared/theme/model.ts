@@ -6,6 +6,7 @@ export interface IThemeState {
   light: string
   dark: string
   theme: string
+  dev: boolean
 }
 
 const initialState: IThemeState = {
@@ -13,6 +14,7 @@ const initialState: IThemeState = {
   light: "light",
   dark: "dark",
   theme: "light",
+  dev: false,
 }
 
 export const themeSlice = createSlice({
@@ -39,6 +41,9 @@ export const themeSlice = createSlice({
       state.mode = payload.mode
       state.theme = payload.theme
       document.documentElement.dataset.theme = payload.theme
+    },
+    toggleDevMode: (state) => {
+      state.dev = !state.dev
     },
   },
 })
