@@ -14,13 +14,13 @@ import { NavLink } from "react-router-dom"
 
 const BottomNavbar = () => {
   const classes = ({ isActive }: { isActive: boolean }) =>
-    `${isActive ? "swap-active" : ""}` + " swap p-2"
+    `${isActive ? "swap-active" : ""}` + " swap p-2 rounded-full bg-base-300"
 
   // const classes2 = ({ isActive }: { isActive: boolean }) =>
   //   `${isActive ? "text-[hsl(var(--in))] swap-active" : ""}` + " swap p-2"
 
   return (
-    <div className="absolute bottom-7 flex justify-center align-center gap-x-8 w-full text-3xl text-base-content/50">
+    <div className="flex justify-center align-center gap-x-8 w-full text-3xl pt-3 pb-6 absolute bottom-0 text-base-content/50">
       <NavLink to="/" className={classes} style={{ fontSize: "inherit" }}>
         <HomeIconSolid className="w-7 h-7 swap-on" />
         <HomeIcon className="w-7 h-7 swap-off" />

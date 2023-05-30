@@ -1,17 +1,13 @@
 import { ReactNode } from "react"
 import { motion } from "framer-motion"
-import { useAppSelector } from "../../app/store"
 
-import { themeModel } from "../../shared"
 import { useDrawerBehavior } from "./lib"
-import { Plug, Puller } from "./ui"
+import { Plug, Puller } from "./components"
 
 type Props = ReturnType<typeof useDrawerBehavior> & { children?: ReactNode }
 
 const SwipeableDrawer = (props: Props) => {
   const { dragEndHandler, isCollapsed, controls, mv, children } = props
-
-  const { dev } = useAppSelector(themeModel.state)
 
   return (
     <>
@@ -33,9 +29,7 @@ const SwipeableDrawer = (props: Props) => {
           visible: { y: 0 },
           hidden: { y: -370 },
         }}
-        className={`bg-base-100 rounded-b-3xl absolute h-[450px] overflow-scroll ${
-          dev && "border-4 border-red-500"
-        }`}
+        className="bg-base-100 rounded-b-3xl absolute h-[450px] w-full overflow-scroll"
       >
         <motion.div className="p-3 pb-0">{children}</motion.div>
         <Puller />

@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 import { RootState } from "../../app/store"
 
-export interface IThemeState {
+interface IThemeState {
   mode: "light" | "dark"
   light: string
   dark: string
@@ -17,8 +17,8 @@ const initialState: IThemeState = {
   dev: false,
 }
 
-export const themeSlice = createSlice({
-  name: "counter",
+const themeSlice = createSlice({
+  name: "theme",
   initialState,
   reducers: {
     switch: (state) => {

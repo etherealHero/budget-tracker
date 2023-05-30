@@ -1,4 +1,6 @@
-import { SwipeableDrawer, Transactions, useDrawerBehavior } from "../widgets"
+import { Transactions } from "../widgets"
+import { SwipeableDrawer, useDrawerBehavior } from "../shared"
+import { DatePicker } from "../features/date-picker"
 
 const Dashboard = () => {
   const opt = useDrawerBehavior()
@@ -6,33 +8,9 @@ const Dashboard = () => {
   return (
     <>
       <SwipeableDrawer {...opt}>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus
-          blanditiis adipisci laboriosam modi quibusdam suscipit voluptas autem
-          pariatur sunt consequuntur commodi, non nisi odio quae. Magnam
-          consequuntur eaque cum temporibus.
-        </p>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus
-          blanditiis adipisci laboriosam modi quibusdam suscipit voluptas autem
-          pariatur sunt consequuntur commodi, non nisi odio quae. Magnam
-          consequuntur eaque cum temporibus.
-        </p>
+        <DatePicker />
       </SwipeableDrawer>
-      <Transactions marginTop={opt.mv}>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio
-          assumenda eaque fugit tempore dolorum, quisquam aperiam numquam, id ut
-          voluptatum placeat possimus est nobis provident facilis, dicta
-          corporis. Tempore, ad.
-        </p>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio
-          assumenda eaque fugit tempore dolorum, quisquam aperiam numquam, id ut
-          voluptatum placeat possimus est nobis provident facilis, dicta
-          corporis. Tempore, ad.
-        </p>
-      </Transactions>
+      <Transactions marginTop={opt.mv} />
     </>
   )
 }

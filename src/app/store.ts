@@ -1,7 +1,5 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit"
-import { themeReducer } from "../shared"
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux"
-
 import {
   persistStore,
   persistReducer,
@@ -14,6 +12,9 @@ import {
 } from "redux-persist"
 import storage from "redux-persist/lib/storage"
 
+import { categoryReducer, transactionReducer } from "../entities"
+import { themeReducer } from "../shared"
+
 const persistConfig = {
   key: "root",
   storage,
@@ -22,6 +23,8 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   theme: themeReducer,
+  transactions: transactionReducer,
+  categories: categoryReducer,
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
