@@ -11,7 +11,7 @@ export const usePopulatedTransactions = () => {
   const categories = useAppSelector(categoryModel.data)
 
   interface ITransactionPopulated extends Omit<ITransaction, "categoryId"> {
-    categoryId: ICategory
+    categoryId: ICategory | undefined
   }
 
   const populatedTransactions: ITransactionPopulated[] = [...transactions]
@@ -19,7 +19,7 @@ export const usePopulatedTransactions = () => {
     .map((t) => {
       const category = categories.find(
         (c) => c.id === t.categoryId
-      ) as ICategory
+      )
 
       return { ...t, categoryId: category }
     })

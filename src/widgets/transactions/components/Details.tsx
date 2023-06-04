@@ -14,7 +14,7 @@ const Details = (props: Props) => {
         {dayjs(props.date).format("HH:mm")}
       </span>
       {props.description && (
-        <span className="text-base-content/40"> | {props.description}</span>
+        <span className="text-base-content/40"> | <span className="italic">{props.description}</span></span>
       )}
     </div>
   )

@@ -1,8 +1,4 @@
-import React from "react"
-
-type Props = {}
-
-const DatePicker = (props: Props) => {
+const DatePicker = () => {
   return <div>DatePicker</div>
 }
 

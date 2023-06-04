@@ -17,7 +17,7 @@ const Icon = ({ color, icon }: Props) => {
       }}
       className={`w-12 h-12 rounded-full flex justify-center items-center text-white/90 ${
         mode === "light"
-          ? "opacity-80 brightness-[1.4] grayscale-[15%] contrast-[2]"
+          ? "opacity-90 grayscale-[20%]"
           : "grayscale-[60%] opacity-75"
       }`}
     >

@@ -1,6 +1,3 @@
-import { createSlice } from "@reduxjs/toolkit"
-import { RootState } from "../../app/store"
-
 export interface ICategory {
   id: string
   title: string
@@ -9,7 +6,7 @@ export interface ICategory {
   color: string
 }
 
-const initialState: ICategory[] = [
+export const initialState: ICategory[] = [
   {
     id: "1",
     title: "Кафе",
@@ -24,16 +21,3 @@ const initialState: ICategory[] = [
     color: "red",
   },
 ]
-
-const categorySlice = createSlice({
-  name: "categories",
-  initialState,
-  reducers: {},
-})
-
-export const categoryModel = {
-  ...categorySlice.actions,
-  data: (state: RootState) => state.categories,
-}
-
-export default categorySlice.reducer

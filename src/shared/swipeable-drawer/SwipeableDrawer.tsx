@@ -7,7 +7,8 @@ import { Plug, Puller } from "./components"
 type Props = ReturnType<typeof useDrawerBehavior> & { children?: ReactNode }
 
 const SwipeableDrawer = (props: Props) => {
-  const { dragEndHandler, isCollapsed, controls, mv, children } = props
+  const { dragEndHandler, isCollapsed, controls, mv, mvInvert, children } =
+    props
 
   return (
     <>
@@ -31,7 +32,9 @@ const SwipeableDrawer = (props: Props) => {
         }}
         className="bg-base-100 rounded-b-3xl absolute h-[450px] w-full overflow-scroll"
       >
-        <motion.div className="p-3 pb-0">{children}</motion.div>
+        <motion.div style={{ marginTop: mvInvert }} className="p-3 pb-0">
+          {children}
+        </motion.div>
         <Puller />
       </motion.div>
     </>

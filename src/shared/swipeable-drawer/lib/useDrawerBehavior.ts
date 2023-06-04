@@ -1,9 +1,15 @@
-import { PanInfo, useAnimation, useMotionValue } from "framer-motion"
+import {
+  PanInfo,
+  useAnimation,
+  useMotionValue,
+  useTransform,
+} from "framer-motion"
 import { useCallback, useState } from "react"
 
 export const useDrawerBehavior = () => {
   const mv = useMotionValue(0)
-  const [isCollapsed, setIsCollapsed] = useState(true)
+  const mvInvert = useTransform(mv, (mv) => -mv)
+  const [isCollapsed, setIsCollapsed] = useState(false)
   const controls = useAnimation()
 
   const dragEndHandler = useCallback(
@@ -33,5 +39,5 @@ export const useDrawerBehavior = () => {
     [isCollapsed]
   )
 
-  return { dragEndHandler, isCollapsed, controls, mv }
+  return { dragEndHandler, isCollapsed, controls, mv, mvInvert }
 }

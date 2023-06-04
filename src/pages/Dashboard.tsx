@@ -1,6 +1,6 @@
-import { Transactions } from "../widgets"
+import { Categories, Transactions } from "../widgets"
+// import { DatePicker } from "../features"
 import { SwipeableDrawer, useDrawerBehavior } from "../shared"
-import { DatePicker } from "../features/date-picker"
 
 const Dashboard = () => {
   const opt = useDrawerBehavior()
@@ -8,7 +8,9 @@ const Dashboard = () => {
   return (
     <>
       <SwipeableDrawer {...opt}>
-        <DatePicker />
+        {/* <DatePicker /> */}
+        <br />
+        <Categories />
       </SwipeableDrawer>
       <Transactions marginTop={opt.mv} />
     </>

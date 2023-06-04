@@ -18,7 +18,7 @@ import { themeReducer } from "../shared"
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["theme"],
+  // whitelist: ["theme"],
 }
 
 const rootReducer = combineReducers({
