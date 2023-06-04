@@ -1,3 +1,5 @@
+@import url("./material-icons/material-icons.css");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -24,6 +26,6 @@
   }
 
   * {
-    @apply scrollbar-hide;
+    @apply scrollbar-hide select-none;
   }
 }

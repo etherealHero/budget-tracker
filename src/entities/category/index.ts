@@ -1,3 +1,4 @@
-import categoryReducer, { categoryModel } from "./model"
+import categoryReducer, { categoryModel, ICategory } from "./model"
 
 export { categoryModel, categoryReducer }
+export type { ICategory }

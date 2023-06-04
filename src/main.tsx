@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom/client"
 import { Provider } from "react-redux"
 import { PersistGate } from "redux-persist/integration/react"
-import "./app/style.css"
+import "./app/styles/index.css"
 
 import "@fontsource/roboto/300.css"
 import "@fontsource/roboto/400.css"
